@@ -1,8 +1,9 @@
 package csc3.Book;
 
 import java.io.Serializable;
-import csc3.Book.Date;
+import csc3.Book.DateCalculator;
 import java.time.LocalDate;
+import java.util.Date;
 
 public class Book implements Serializable {
 
@@ -10,17 +11,17 @@ public class Book implements Serializable {
     private String lastName;
     private String email;
     private String bookTitle;
-    private LocalDate date;
+    private String date;
 
     public Book() {
         firstName = "";
         lastName = "";
         email = "";
         bookTitle= "";
-        date = null;
+        date = "";
     }
 
-    public Book(String firstName, String lastName, String email, String bookTitle, LocalDate date) {
+    public Book(String firstName, String lastName, String email, String bookTitle, String date) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -59,10 +60,10 @@ public class Book implements Serializable {
         this.bookTitle = bookTitle;
     }
     
-    public LocalDate getDate(){
+    public String getDate(){
         return date;
     }
-    public void setDate (LocalDate date){
+    public void setDate (String date){
         this.date = date;
     }
 

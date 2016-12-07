@@ -5,9 +5,10 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import csc3.Book.Book;
-import csc3.Data.BookDB;
-import csc3.Book.Date;
-import java.time.LocalDate;
+//import csc3.Data.BookDB;
+import csc3.Book.DateCalculator;
+
+import java.util.Date;
 
 
 
@@ -37,8 +38,8 @@ public class CheckoutServlet extends HttpServlet {
             String email = request.getParameter("email");
             String bookTitle = request.getParameter("bookTitle");
             
-            LocalDate date = null;
-            date = Date.setDate(date);
+            String date = null;
+            date = DateCalculator.setDate();
             
             // store data in Book object
             
@@ -55,7 +56,7 @@ public class CheckoutServlet extends HttpServlet {
             else {
                 message = "";
                 url = "/thanks.jsp";
-                BookDB.insert(book);
+                //BookDB.insert(book);
             }
             request.setAttribute("book", book);
             request.setAttribute("message", message);
